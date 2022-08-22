@@ -225,27 +225,26 @@ def onmessage(update,bot:ObigramClient):
     try:
         thread = bot.this_thread
         username = update.message.sender.username
-        tl_admin_user = os.environ.get('tl_admin_user')
+        tl_admin_user = os.environ.get('tl_admin_user','nautaii')
 
-        #set in debug
-        #tl_admin_user = 'Elpatron022'
+        #Descomentar debajo solo si se ba a poner el usuario admin de telegram manual
+        #tl_admin_user = 'nautaii'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
         jdb.load()
 
         user_info = jdb.get_user(username)
-        #if username == tl_admin_user or user_info:
-        if username in str(tl_admin_user).split(';') or user_info or tl_admin_user=='*':  # validate user
+
+        if username == tl_admin_user or tl_admin_user=='nautaii' or user_info :  # validate user
             if user_info is None:
-                #if username == tl_admin_user:
                 if username == tl_admin_user:
                     jdb.create_admin(username)
                 else:
                     jdb.create_user(username)
                 user_info = jdb.get_user(username)
                 jdb.save()
-        else:
+        else:return
             mensaje = "🚷 No tienes Acceso 🚷"
             reply_markup = inlineKeyboardMarkup(
                 r1=[inlineKeyboardButton('⚙Contactar Soporte⚙',url='https://t.me/obidevel')]
@@ -586,8 +585,8 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             reply_markup = inlineKeyboardMarkup(
-                r1=[inlineKeyboardButton('📊 Github Dev 📊', url='https://github.com/ObisoftDev'),
-                    inlineKeyboardButton('⚙ Soporte ⚙', url='https://t.me/obidevel')]
+                r1=[inlineKeyboardButton('📊 DESAROLLADOR📊', url='https://github.com/nautaii'),
+                    inlineKeyboardButton('⚙ Soporte ⚙', url='https://t.me/nautaii')]
             )
             bot.editMessageText(message,infos.dashboard(),parse_mode='html',reply_markup=reply_markup)
         elif '/token' in msgText:
