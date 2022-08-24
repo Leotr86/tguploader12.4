@@ -585,7 +585,7 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             reply_markup = inlineKeyboardMarkup(
-                r1=[inlineKeyboardButton('📊 DESAROLLADOR📊', url='https://github.com/nautaii'),
+                r1=[inlineKeyboardButton('📊 DESAROLLADOR📊', url='https://t.me/nautaii'),
                     inlineKeyboardButton('⚙ Soporte ⚙', url='https://t.me/nautaii')]
             )
             bot.editMessageText(message,infos.dashboard(),parse_mode='html',reply_markup=reply_markup)

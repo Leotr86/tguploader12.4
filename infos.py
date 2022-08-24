@@ -4,7 +4,7 @@ import time
 import os
 
 def dashboard():
-    start_msg = '<a href="https://github.com/ObisoftDev">-TGUploaderV12-</a>\n'
+    start_msg = '<a href="https://t.me/nautaii">-TGUploaderV12-</a>\n'
     start_msg += '<b>🚨Uso: Envia Enlaces De Descarga y Archivos Para Procesar (Configure Antes De Empezar , Vea El /tutorial)</b>\n'
     return start_msg
 
